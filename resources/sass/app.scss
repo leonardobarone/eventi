@@ -1,0 +1,21 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.note-editor .note-editing-area .note-editable {
+    background-color: white;
+} 
+
+.card {
+    margin: 10px 0px;
+}
+
+.alert-success {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
