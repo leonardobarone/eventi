@@ -1,1 +1,1 @@
-web: heroku-php-apache2 -php 7.4.16 public/
+web: heroku-php-apache2 -php 8.0.1 public/
