@@ -66,7 +66,7 @@ class EventController extends Controller
             $playbill = $data['playbill'];
 
             // Genera un nome di file univoco
-            $fileName = $data['id'] . '_' . $data['title_it'];
+            $fileName = uniqid() . '_' . $playbill->getClientOriginalName();
 
             // Salva il file su S3 con il nome univoco all'interno della cartella specifica
             Storage::disk('s3')->put('events_playbill/' . $fileName, file_get_contents($playbill));
