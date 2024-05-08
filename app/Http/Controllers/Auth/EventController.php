@@ -60,7 +60,7 @@ class EventController extends Controller
 
         // Playbill
         if (array_key_exists('playbill', $data)) {
-            $playbill_path = Storage::put('events_playbill', $data['playbill']);
+            $playbill_path = Storage::disk('s3')->put('events_playbill', file_get_contents('try'));
             $data['playbill'] = $playbill_path;
         }
 
