@@ -175,8 +175,7 @@
         <div>{{$event->playbill}}</div>
 
         @if ($event->playbill)
-        
-            <img style="width: 100px; height: 100px; object-fit: cover; object-position: center;" src="{{ asset('storage/' . $event->playbill ) }}" alt=""> 
+            <img style="width: 100px; height: 100px; object-fit: cover; object-position: center;" src="{{ 'https://eventiprocida.s3.amazonaws.com/events_playbill/' . $event->playbill }}" alt=""> 
             <div class="custom-control custom-checkbox my-2">
                 <input name="delete_playbill" type="checkbox" class="custom-control-input" id="delete_playbill" {{ old('delete_playbill') ? 'checked' : '' }}>
                 <label class="custom-control-label" for="delete_playbill">Elimina locandina</label>
