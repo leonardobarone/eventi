@@ -172,7 +172,6 @@
                 </div>
             @enderror
         </div>
-        <div>{{$event->playbill}}</div>
 
         @if ($event->playbill)
             <img style="width: 100px; height: 100px; object-fit: cover; object-position: center;" src="{{ 'https://eventiprocida.s3.amazonaws.com/events_playbill/' . $event->playbill }}" alt=""> 
