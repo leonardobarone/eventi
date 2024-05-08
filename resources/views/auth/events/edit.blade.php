@@ -172,6 +172,7 @@
                 </div>
             @enderror
         </div>
+        <div>{{$event->playbill}}</div>
         @if ($event->playbill)
             <img style="width: 100px; height: 100px; object-fit: cover; object-position: center;" src="{{ asset('storage/' . $event->playbill ) }}" alt=""> 
             <div class="custom-control custom-checkbox my-2">

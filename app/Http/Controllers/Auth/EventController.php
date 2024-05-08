@@ -6,7 +6,6 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
 
 class EventController extends Controller
