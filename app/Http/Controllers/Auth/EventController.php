@@ -154,7 +154,7 @@ class EventController extends Controller
     {
 
         if ($event->playbill) {
-            Storage::disk('s3')->delete($event->playbill);
+            Storage::disk('s3')->delete('events_playbill/' . $event->playbill);
         }
 
         $event->delete();
