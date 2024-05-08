@@ -122,6 +122,7 @@ class EventController extends Controller
         // Dom
         $data = $request->all();
 
+
         // Playbill
         if (array_key_exists('playbill', $data)) {
             if ($event->playbill) {
@@ -153,7 +154,7 @@ class EventController extends Controller
     {
 
         if ($event->playbill) {
-            Storage::delete($event->playbill);
+            Storage::disk('s3')->delete($event->playbill);
         }
 
         $event->delete();
