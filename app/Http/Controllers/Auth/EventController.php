@@ -126,13 +126,22 @@ class EventController extends Controller
         // Playbill
         if (array_key_exists('playbill', $data)) {
             if ($event->playbill) {
-                Storage::delete($event->playbill);
+                Storage::disk('s3')->delete('events_playbill/' . $event->playbill);
             }
-            $playbill_path = Storage::put('events_playbill', $data['playbill']);
-            $data['playbill'] = $playbill_path;
+            // Ottieni il file
+            $playbill = $data['playbill'];
+
+            // Genera un nome di file univoco
+            $fileName = uniqid() . '_' . $playbill->getClientOriginalName();
+
+            // Salva il file su S3 con il nome univoco all'interno della cartella specifica
+            Storage::disk('s3')->put('events_playbill/' . $fileName, file_get_contents($playbill));
+            
+            // Salva path
+            $data['playbill'] = $fileName;
         } else {
             if (isset($data['delete_playbill']) && $event->playbill) {
-                Storage::delete($event->playbill);
+                Storage::disk('s3')->delete('events_playbill/' . $event->playbill);
                 $event->playbill = NULL;
             }
         }
